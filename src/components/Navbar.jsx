@@ -64,15 +64,33 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="mobile-menu glass">
-          <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link to="/store" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Digital Store</Link>
-          <Link to="/topup" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Game Top-Up</Link>
-          <Link to="/services" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
-          <Link to="/videos" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
+      <div className={`mobile-menu glass ${isMobileMenuOpen ? 'open' : ''}`}>
+        <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+        <Link to="/store" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Digital Store</Link>
+        <Link to="/topup" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Game Top-Up</Link>
+        <Link to="/services" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+        <Link to="/videos" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
+        
+        <div className="mobile-auth-actions md:hidden">
+          {user ? (
+            <>
+              <div className="user-greeting" style={{ display: 'block', marginBottom: '0.5rem' }}>Hi, {user.name}</div>
+              {user.role === 'admin' && (
+                <Link to="/dashboard" className="btn btn-secondary" onClick={() => setIsMobileMenuOpen(false)}>
+                  <LayoutDashboard size={16} /> Dashboard
+                </Link>
+              )}
+              <button onClick={() => { handleLogout(); setIsMobileMenuOpen(false); }} className="btn btn-danger">
+                <LogOut size={16} /> Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="btn btn-primary" onClick={() => setIsMobileMenuOpen(false)}>
+              <User size={16} /> Login
+            </Link>
+          )}
         </div>
-      )}
+      </div>
     </nav>
   );
 }

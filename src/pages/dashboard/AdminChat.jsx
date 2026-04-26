@@ -117,7 +117,7 @@ export default function AdminChat() {
         {/* Sidebar Sessions */}
         <div className="chat-sidebar" style={{ width: '300px', borderRight: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
-            <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'var(--bg-secondary)', borderRadius: 'var(--radius-sm)' }}>
+            <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'var(--color-surface)', borderRadius: 'var(--radius-sm)' }}>
               <Search size={16} className="text-muted" />
               <input 
                 type="text" 
@@ -147,7 +147,7 @@ export default function AdminChat() {
                   className="hover:bg-secondary transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--bg-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--color-surface)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <User size={20} className="text-muted" />
                     </div>
                     <div style={{ flex: 1, overflow: 'hidden' }}>
@@ -171,7 +171,7 @@ export default function AdminChat() {
             <>
               {/* Header */}
               <div style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--bg-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--color-surface)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <User size={20} className="text-muted" />
                 </div>
                 <div>
@@ -191,7 +191,7 @@ export default function AdminChat() {
                     }}
                   >
                     <div style={{ 
-                      background: msg.sender === 'admin' ? 'var(--primary)' : 'var(--bg-secondary)',
+                      background: msg.sender === 'admin' ? 'var(--primary)' : 'var(--color-surface)',
                       color: msg.sender === 'admin' ? '#fff' : 'var(--text-primary)',
                       padding: '0.75rem 1rem',
                       borderRadius: '1rem',
@@ -201,7 +201,7 @@ export default function AdminChat() {
                     }}>
                       {msg.text}
                     </div>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem', textAlign: msg.sender === 'admin' ? 'right' : 'left' }}>
+                    <div style={{ fontSize: '0.7rem', color: 'var(--color-text-muted)', marginTop: '0.25rem', textAlign: msg.sender === 'admin' ? 'right' : 'left' }}>
                       {new Date(msg.created_at || Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                     </div>
                   </div>
@@ -217,7 +217,7 @@ export default function AdminChat() {
                     value={reply}
                     onChange={e => setReply(e.target.value)}
                     placeholder="Ketik balasan..." 
-                    style={{ flex: 1, padding: '0.75rem 1rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-primary)', outline: 'none' }}
+                    style={{ flex: 1, padding: '0.75rem 1rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-color)', background: 'var(--color-surface)', color: 'var(--text-primary)', outline: 'none' }}
                   />
                   <button 
                     type="submit" 
@@ -230,7 +230,7 @@ export default function AdminChat() {
               </div>
             </>
           ) : (
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-muted)' }}>
               <MessageCircle size={64} style={{ opacity: 0.2, marginBottom: '1rem' }} />
               <h3>Pilih sesi untuk melihat pesan</h3>
             </div>
@@ -240,3 +240,4 @@ export default function AdminChat() {
     </div>
   );
 }
+

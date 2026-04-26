@@ -9,7 +9,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   color: white;
   display: flex;
   align-items: center;
@@ -35,7 +35,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -68,7 +69,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,12 +78,12 @@
 }
 
 .chat-close-btn {
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   transition: color 0.2s;
 }
 
 .chat-close-btn:hover {
-  color: var(--text-main);
+  color: var(--color-text);
 }
 
 .chat-body {
@@ -126,7 +127,7 @@
 }
 
 .user-bubble {
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   color: white;
   border-bottom-right-radius: 4px;
 }
@@ -134,7 +135,7 @@
 .admin-bubble {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--glass-border);
-  color: var(--text-main);
+  color: var(--color-text);
   border-bottom-left-radius: 4px;
 }
 
@@ -159,7 +160,7 @@
 }
 
 .chat-input:focus {
-  border-color: var(--accent-primary);
+  border-color: var(--color-primary);
 }
 
 .chat-send-btn {
@@ -195,3 +196,5 @@
     z-index: 1001;
   }
 }
+
+

@@ -60,7 +60,7 @@ export default function DashboardLayout() {
         </div>
 
         <div className="sidebar-user mb-4 p-3" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)' }}>
-          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Logged in as Admin</div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>Logged in as Admin</div>
           <div style={{ fontWeight: '600' }}>{user.name}</div>
         </div>
 
@@ -99,3 +99,4 @@ export default function DashboardLayout() {
     </div>
   );
 }
+

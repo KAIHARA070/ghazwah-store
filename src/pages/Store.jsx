@@ -29,7 +29,7 @@ export default function Store() {
       <div className="container">
         <div className="flex justify-between items-center mb-5 flex-wrap gap-4">
           <div>
-            <h1 className="hero-title mb-1" style={{ fontSize: '3rem' }}>Katalog <span className="text-gradient">Produk</span></h1>
+            <h1 className="mb-1">Katalog <span className="text-gradient">Produk</span></h1>
             <p className="text-muted">Temukan produk digital dan top-up game terbaik.</p>
           </div>
           

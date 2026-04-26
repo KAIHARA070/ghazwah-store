@@ -105,14 +105,14 @@ export default function TopupManage() {
         <button 
           className={`btn ${activeTab === 'games' ? 'btn-primary' : ''}`} 
           onClick={() => setActiveTab('games')}
-          style={activeTab !== 'games' ? { background: 'transparent', border: 'none', color: 'var(--text-muted)' } : {}}
+          style={activeTab !== 'games' ? { background: 'transparent', border: 'none', color: 'var(--color-text-muted)' } : {}}
         >
           <Gamepad2 size={18} className="mr-2" /> Data Game
         </button>
         <button 
           className={`btn ${activeTab === 'packages' ? 'btn-primary' : ''}`} 
           onClick={() => setActiveTab('packages')}
-          style={activeTab !== 'packages' ? { background: 'transparent', border: 'none', color: 'var(--text-muted)' } : {}}
+          style={activeTab !== 'packages' ? { background: 'transparent', border: 'none', color: 'var(--color-text-muted)' } : {}}
         >
           <PackageIcon size={18} className="mr-2" /> Pakej Top-Up
         </button>
@@ -250,3 +250,4 @@ export default function TopupManage() {
     </div>
   );
 }
+

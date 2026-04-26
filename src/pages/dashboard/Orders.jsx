@@ -54,7 +54,7 @@ export default function Orders() {
               ) : (
                 orders.map(order => (
                   <tr key={order.id}>
-                    <td style={{ fontWeight: 600, color: 'var(--accent-primary)', fontSize: '0.8rem' }}>
+                    <td style={{ fontWeight: 600, color: 'var(--color-primary)', fontSize: '0.8rem' }}>
                       {order.id.substring(0, 8)}...
                     </td>
                     <td>{order.user_email}</td>
@@ -90,3 +90,4 @@ export default function Orders() {
     </div>
   );
 }
+

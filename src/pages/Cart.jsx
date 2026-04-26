@@ -76,11 +76,11 @@ export default function Cart() {
           
           <div className="glass-card" style={{ padding: '1.5rem', height: 'fit-content' }}>
             <h3 className="mb-4">Ringkasan Pesanan</h3>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', color: 'var(--text-muted)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', color: 'var(--color-text-muted)' }}>
               <span>Total Harga</span>
               <span>RM {cartTotal.toLocaleString('ms-MY')}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', color: 'var(--text-muted)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', color: 'var(--color-text-muted)' }}>
               <span>Biaya Layanan</span>
               <span>Gratis</span>
             </div>
@@ -104,3 +104,4 @@ export default function Cart() {
     </div>
   );
 }
+

@@ -1,7 +1,7 @@
 .hero-container {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: var(--space-xl);
   min-height: calc(100vh - 70px - 10rem);
 }
 
@@ -9,22 +9,16 @@
   flex: 1;
 }
 
-.hero-title {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-}
-
 .hero-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
   max-width: 500px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 
 .hero-image-wrapper {
@@ -39,7 +33,7 @@
   transform: translate(-50%, -50%);
   width: 300px;
   height: 300px;
-  background: var(--accent-primary);
+  background: var(--color-primary);
   filter: blur(100px);
   opacity: 0.3;
   border-radius: 50%;
@@ -52,23 +46,23 @@
   height: auto;
   z-index: 1;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .features-section {
-  padding: 4rem 0;
+  padding: var(--space-xl) 0;
   background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.03), transparent);
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
 }
 
 .feature-card {
-  padding: 2rem;
+  padding: var(--space-lg);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 
 .feature-icon-wrapper {
@@ -79,35 +73,29 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: 2.5rem;
+  margin-bottom: var(--space-xs);
 }
 
 @media (max-width: 992px) {
   .hero-container {
     flex-direction: column;
     text-align: center;
-    padding-top: 2rem;
+    padding-top: var(--space-md);
   }
   
   .hero-subtitle {
-    margin: 0 auto 2.5rem;
+    margin: 0 auto var(--space-lg);
   }
   
   .hero-actions {
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-  
-  .features-section .grid {
-    gap: 1.5rem;
+  .hero-container {
+    gap: var(--space-lg);
   }
 }
+

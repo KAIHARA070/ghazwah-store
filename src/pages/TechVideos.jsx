@@ -58,7 +58,7 @@ export default function TechVideos() {
     <div className="section relative">
       <div className="container">
         <div className="text-center mb-5">
-          <h1 className="hero-title mb-2" style={{ fontSize: '3rem' }}>Tech <span className="text-gradient">Videos</span></h1>
+          <h1 className="mb-2">Tech <span className="text-gradient">Videos</span></h1>
           <p className="text-muted" style={{ maxWidth: '600px', margin: '0 auto' }}>
             Temukan berita teknologi terkini, ulasan gadget, dan tips produktivitas dari para ahli.
           </p>

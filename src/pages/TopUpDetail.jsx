@@ -110,7 +110,7 @@ export default function TopUpDetail() {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         
         {/* Top Header Panel */}
-        <div className="glass-card mb-5 flex flex-col md-flex-row gap-5 items-center p-5" style={{ background: 'rgba(20, 21, 31, 0.6)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '20px' }}>
+        <div className="glass-card mb-5 flex flex-col md:flex-row gap-4 items-center p-5" style={{ background: 'rgba(20, 21, 31, 0.6)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '20px' }}>
           <img src={game.image_url} alt={game.name} style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -122,9 +122,9 @@ export default function TopUpDetail() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg-grid-cols-3" style={{ gap: '2rem', display: 'grid', gridTemplateColumns: '1fr 1fr 380px' }}>
+        <div className="layout-sidebar">
           
-          <div style={{ gridColumn: 'span 2', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div className="flex flex-col gap-4">
             
             {/* Step 1: User ID */}
             <div className="glass-card p-6" style={{ background: 'rgba(20, 21, 31, 0.8)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '20px' }}>
@@ -164,7 +164,7 @@ export default function TopUpDetail() {
                 <Zap size={18} className="text-primary" /> Item Top-Up
               </div>
 
-              <div className="grid grid-cols-2 md-grid-cols-3" style={{ gap: '1rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))' }}>
+              <div className="grid grid-cols-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 'var(--space-sm)' }}>
                 {packages.length === 0 ? (
                   <div className="text-muted text-center" style={{ gridColumn: '1/-1', padding: '2rem 0' }}>Tiada pakej tersedia.</div>
                 ) : (
@@ -233,7 +233,7 @@ export default function TopUpDetail() {
               </div>
 
               <div className="flex justify-between items-end mb-6">
-                <span style={{ fontWeight: '600', color: 'var(--text-muted)' }}>Total Harga</span>
+                <span style={{ fontWeight: '600', color: 'var(--color-text-muted)' }}>Total Harga</span>
                 <span className="text-gradient" style={{ fontSize: '1.8rem', fontWeight: '900', lineHeight: 1 }}>
                   MYR {selectedPackage ? Number(selectedPackage.price).toFixed(2) : '0.00'}
                 </span>
@@ -259,3 +259,4 @@ export default function TopUpDetail() {
     </div>
   );
 }
+
