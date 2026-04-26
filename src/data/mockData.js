@@ -1,0 +1,50 @@
+export const products = [
+  {
+    id: 1,
+    name: 'Mobile Legends 1000 Diamonds',
+    description: 'Top up 1000 Diamonds untuk Mobile Legends. Proses instan otomatis masuk.',
+    price: 75,
+    category: 'Top-Up',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 2,
+    name: 'Genshin Impact 1980 Genesis Crystals',
+    description: 'Top up 1980 Genesis Crystals untuk Genshin Impact server global/asia.',
+    price: 135,
+    category: 'Top-Up',
+    image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 3,
+    name: 'Netflix Premium 1 Bulan',
+    description: 'Akun Netflix Premium resolusi 4K. Garansi 1 bulan full.',
+    price: 15,
+    category: 'Digital',
+    image: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 4,
+    name: 'Windows 11 Pro Original License',
+    description: 'Lisensi original Windows 11 Pro Retail Key (Bind ke akun Microsoft).',
+    price: 45,
+    category: 'Digital',
+    image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 5,
+    name: 'Template Website Portfolio',
+    description: 'Template website portfolio modern dengan React dan Tailwind CSS.',
+    price: 100,
+    category: 'Digital',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 6,
+    name: 'Valorant 2050 VP',
+    description: 'Top up Valorant Points region Indonesia. Legal 100%.',
+    price: 60,
+    category: 'Top-Up',
+    image: 'https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+  }
+];
