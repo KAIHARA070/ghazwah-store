@@ -38,9 +38,9 @@ export default function DashboardLayout() {
     <div className="dashboard-container">
       {/* Mobile Header */}
       <div className="dashboard-mobile-header glass">
-        <div className="flex items-center gap-2 font-bold text-lg">
-          <Rocket className="text-gradient" size={24} />
-          <span>Ghazwah Store</span>
+        <div className="flex items-center gap-3 font-bold text-lg">
+          <img src="/logo.png" alt="Logo" style={{ height: '32px', width: 'auto' }} />
+          <span className="text-gradient" style={{ letterSpacing: '0.5px' }}>Ghazwah Store</span>
         </div>
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
           {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
@@ -54,9 +54,9 @@ export default function DashboardLayout() {
 
       {/* Sidebar */}
       <aside className={`dashboard-sidebar glass ${isSidebarOpen ? 'open' : ''}`}>
-        <div className="sidebar-logo">
-          <Rocket className="text-gradient" size={28} />
-          <span className="text-gradient font-bold" style={{ fontSize: '1.25rem' }}>Ghazwah Store</span>
+        <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img src="/logo.png" alt="Logo" style={{ height: '40px', width: 'auto' }} />
+          <span className="text-gradient font-bold" style={{ fontSize: '1.25rem', letterSpacing: '0.5px' }}>Ghazwah Store</span>
         </div>
 
         <div className="sidebar-user mb-4 p-3" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)' }}>
