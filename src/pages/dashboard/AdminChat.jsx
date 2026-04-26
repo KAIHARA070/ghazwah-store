@@ -113,9 +113,9 @@ export default function AdminChat() {
         </h1>
       </div>
 
-      <div className="glass flex flex-1 overflow-hidden" style={{ borderRadius: 'var(--radius-lg)' }}>
+      <div className="glass flex chat-layout flex-1 overflow-hidden" style={{ borderRadius: 'var(--radius-lg)' }}>
         {/* Sidebar Sessions */}
-        <div style={{ width: '300px', borderRight: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column' }}>
+        <div className="chat-sidebar" style={{ width: '300px', borderRight: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
             <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'var(--bg-secondary)', borderRadius: 'var(--radius-sm)' }}>
               <Search size={16} className="text-muted" />

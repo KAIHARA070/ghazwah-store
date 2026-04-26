@@ -99,7 +99,7 @@ export default function VideoManage() {
         <h1 className="text-2xl font-bold">Kelola Video Teknologi</h1>
       </div>
 
-      <div className="grid grid-cols-1 md-grid-cols-2" style={{ gap: '2rem', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+      <div className="grid grid-cols-2" style={{ gap: '2rem' }}>
         <div className="glass p-4" style={{ padding: '1.5rem', borderRadius: 'var(--radius-md)' }}>
           <h3 className="mb-4 flex items-center gap-2"><Video size={20} className="text-gradient" /> Upload Video Baru</h3>
           <form onSubmit={handleAddVideo}>

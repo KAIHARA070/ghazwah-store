@@ -261,3 +261,24 @@ h1, h2, h3, h4, h5, h6 {
 .justify-center { justify-content: center; }
 .gap-2 { gap: 0.5rem; }
 .gap-4 { gap: 1rem; }
+
+/* Dashboard Overrides for Mobile */
+.dashboard-table th, .dashboard-table td {
+  white-space: nowrap;
+}
+
+.chat-layout {
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .chat-layout {
+    flex-direction: column;
+  }
+  .chat-sidebar {
+    width: 100% !important;
+    max-height: 250px;
+    border-right: none !important;
+    border-bottom: 1px solid var(--glass-border);
+  }
+}
