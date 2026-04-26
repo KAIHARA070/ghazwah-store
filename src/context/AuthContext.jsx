@@ -51,7 +51,12 @@ export const AuthProvider = ({ children }) => {
           role: session.user.user_metadata?.role || 'user'
         });
       } else {
-        setUser(null);
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          setUser(JSON.parse(storedUser));
+        } else {
+          setUser(null);
+        }
       }
     });
 

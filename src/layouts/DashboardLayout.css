@@ -149,12 +149,20 @@
 .status-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; }
 
 @media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  
   .dashboard-mobile-header {
     display: flex;
   }
   
   .dashboard-sidebar {
     transform: translateX(-100%);
+    position: fixed;
+    height: 100vh;
+    z-index: 50;
+    background-color: var(--bg-main);
   }
   
   .dashboard-sidebar.open {
@@ -172,7 +180,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 35;
+    z-index: 40;
     backdrop-filter: blur(4px);
   }
 }
