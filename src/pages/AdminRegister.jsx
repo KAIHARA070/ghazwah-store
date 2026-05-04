@@ -25,8 +25,12 @@ export default function AdminRegister() {
 
     setLoading(true);
     try {
-      await registerWithEmail(email, password, name, 'admin');
-      navigate('/dashboard'); // Redirect to dashboard for admin
+      const data = await registerWithEmail(email, password, name, 'admin');
+      if (data && !data.session) {
+        setError('Pendaftaran Admin berjaya! Sila semak emel anda dan klik pautan pengesahan sebelum log masuk.');
+      } else {
+        navigate('/dashboard'); // Redirect to dashboard for admin
+      }
     } catch (err) {
       setError(err.message || 'Gagal mendaftar. Silakan coba lagi.');
     } finally {

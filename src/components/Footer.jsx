@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-4 mb-5">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.jpeg" alt="Ghazwah Store" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/logo.jpeg" alt="Ghazwah Store" style={{ height: '50px', width: 'auto', objectFit: 'contain', borderRadius: '50%' }} />
               <span className="text-gradient" style={{ fontSize: 'clamp(1.2rem, 2vw, 1.5rem)', fontWeight: 800, letterSpacing: '0.5px' }}>Ghazwah Store</span>
             </div>
             <p className="text-muted mb-3" style={{ maxWidth: '400px' }}>

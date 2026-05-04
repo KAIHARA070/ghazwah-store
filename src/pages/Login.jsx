@@ -33,7 +33,7 @@ export default function Login() {
         navigate('/store');
       }
     } catch (err) {
-      setError('Email atau password salah.');
+      setError(err.message || 'Email atau password salah.');
     } finally {
       setLoading(false);
     }

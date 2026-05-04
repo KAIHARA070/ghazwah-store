@@ -16,8 +16,12 @@ export default function Register() {
     setError('');
     setLoading(true);
     try {
-      await registerWithEmail(email, password, name, 'user');
-      navigate('/store'); // Redirect to store for normal users
+      const data = await registerWithEmail(email, password, name, 'user');
+      if (data && !data.session) {
+        setError('Pendaftaran berjaya! Sila semak emel anda dan klik pautan pengesahan sebelum log masuk.');
+      } else {
+        navigate('/store'); // Redirect to store for normal users
+      }
     } catch (err) {
       setError(err.message || 'Gagal mendaftar. Silakan coba lagi.');
     } finally {

@@ -39,7 +39,7 @@ export default function DashboardLayout() {
       {/* Mobile Header */}
       <div className="dashboard-mobile-header glass">
         <div className="flex items-center gap-3 font-bold text-lg">
-          <img src="/logo.jpeg" alt="Logo" style={{ height: '32px', width: 'auto' }} />
+          <img src="/logo.jpeg" alt="Logo" style={{ height: '32px', width: 'auto', borderRadius: '50%' }} />
           <span className="text-gradient" style={{ letterSpacing: '0.5px' }}>Ghazwah Store</span>
         </div>
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
@@ -55,7 +55,7 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <aside className={`dashboard-sidebar glass ${isSidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <img src="/logo.jpeg" alt="Logo" style={{ height: '40px', width: 'auto' }} />
+          <img src="/logo.jpeg" alt="Logo" style={{ height: '40px', width: 'auto', borderRadius: '50%' }} />
           <span className="text-gradient font-bold" style={{ fontSize: '1.25rem', letterSpacing: '0.5px' }}>Ghazwah Store</span>
         </div>
 

@@ -34,7 +34,7 @@ export default function Navbar() {
     <nav className="navbar glass">
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src="/logo.jpeg" alt="Ghazwah Store Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
+          <img src="/logo.jpeg" alt="Ghazwah Store Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain', borderRadius: '50%' }} />
           <span className="text-gradient" style={{ fontWeight: '800', fontSize: '1.2rem', letterSpacing: '1px' }}>Ghazwah Store</span>
         </Link>
 
