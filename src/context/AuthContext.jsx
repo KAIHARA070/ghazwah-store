@@ -31,15 +31,12 @@ export const AuthProvider = ({ children }) => {
           role: session.user.user_metadata?.role || 'user'
         });
       } else {
-        // Fallback to local mock storage if Supabase is not fully configured
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) setUser(JSON.parse(storedUser));
+        setUser(null);
       }
       if (isMounted) setLoading(false);
     }).catch((err) => {
       console.error("Auth Exception:", err);
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) setUser(JSON.parse(storedUser));
+      setUser(null);
       if (isMounted) setLoading(false);
     });
 
@@ -53,12 +50,7 @@ export const AuthProvider = ({ children }) => {
           role: session.user.user_metadata?.role || 'user'
         });
       } else {
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-          setUser(JSON.parse(storedUser));
-        } else {
-          setUser(null);
-        }
+        setUser(null);
       }
     });
 
@@ -87,33 +79,17 @@ export const AuthProvider = ({ children }) => {
       
       // Jika Supabase membutuhkan konfirmasi email (session = null)
       if (!data.session) {
-        console.warn('Email confirmation required by Supabase. Using mock login for now.');
-        const mockUser = { id: data.user?.id || Date.now().toString(), name: fullName || email.split('@')[0], email, role };
-        setUser(mockUser);
-        localStorage.setItem('user', JSON.stringify(mockUser));
-        return { user: mockUser };
+        console.warn('Email confirmation required by Supabase.');
       }
       
       return data;
     } catch (error) {
       console.error('Registration error:', error.message);
-      // Fallback for mock if Supabase is not configured
-      const mockUser = { id: Date.now().toString(), name: fullName || email.split('@')[0], email, role };
-      setUser(mockUser);
-      localStorage.setItem('user', JSON.stringify(mockUser));
-      return { user: mockUser };
+      throw error;
     }
   };
 
   const loginWithEmail = async (email, password) => {
-    // BACKDOOR: Allow the requested admin account to login even if Supabase blocks it
-    if (email === 'cloudhosting070@gmail.com' && password === 'S3cr3t@ch') {
-      const mockAdmin = { id: 'admin-1', name: 'admin', email: email, role: 'admin' };
-      setUser(mockAdmin);
-      localStorage.setItem('user', JSON.stringify(mockAdmin));
-      return { user: mockAdmin };
-    }
-
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -123,23 +99,13 @@ export const AuthProvider = ({ children }) => {
       return data;
     } catch (error) {
       console.error('Login error:', error.message);
-      // Mock login fallback
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        const parsed = JSON.parse(storedUser);
-        if (parsed.email === email) {
-          setUser(parsed);
-          return { user: parsed };
-        }
-      }
-      throw new Error('User not found or invalid credentials');
+      throw error;
     }
   };
 
   const logout = async () => {
     await supabase.auth.signOut();
     setUser(null);
-    localStorage.removeItem('user');
   };
 
   return (
