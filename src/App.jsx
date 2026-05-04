@@ -10,6 +10,8 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AdminRegister from './pages/AdminRegister';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import DashboardLayout from './layouts/DashboardLayout';
 import Overview from './pages/dashboard/Overview';
 import ProductsManage from './pages/dashboard/ProductsManage';
@@ -43,6 +45,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/admin-register" element={<AdminRegister />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/settings" element={<Settings />} />
               </Routes>
             </main>
             <Footer />

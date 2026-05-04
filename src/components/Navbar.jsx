@@ -1,15 +1,29 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, LogOut, Menu, X, Rocket, LayoutDashboard } from 'lucide-react';
+import { ShoppingCart, User, LogOut, Menu, X, Rocket, LayoutDashboard, Settings } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './Navbar.css';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const { cartCount } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -40,16 +54,42 @@ export default function Navbar() {
           </Link>
 
           {user ? (
-            <div className="user-menu">
-              <span className="user-greeting">Hi, {user.name}</span>
-              {user.role === 'admin' && (
-                <Link to="/dashboard" className="btn btn-secondary btn-sm" style={{ padding: '0.4rem 0.8rem' }}>
-                  <LayoutDashboard size={16} /> Dashboard
+            <div className={`user-dropdown ${isDropdownOpen ? 'open' : ''}`} ref={dropdownRef}>
+              <div className="user-dropdown-toggle" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div className="user-avatar">
+                  {user.name.charAt(0).toUpperCase()}
+                </div>
+                <span style={{ fontSize: '0.9rem', fontWeight: 500, marginRight: '4px' }}>{user.name.split(' ')[0]}</span>
+              </div>
+              
+              <div className="dropdown-menu">
+                <div style={{ padding: '0.5rem 1rem', marginBottom: '4px' }}>
+                  <div style={{ fontWeight: 600 }}>{user.name}</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{user.email}</div>
+                </div>
+                
+                <div className="dropdown-divider"></div>
+                
+                {user.role === 'admin' && (
+                  <Link to="/dashboard" className="dropdown-item" onClick={() => setIsDropdownOpen(false)}>
+                    <LayoutDashboard size={16} /> Dashboard
+                  </Link>
+                )}
+                
+                <Link to="/profile" className="dropdown-item" onClick={() => setIsDropdownOpen(false)}>
+                  <User size={16} /> Profil Saya
                 </Link>
-              )}
-              <button onClick={handleLogout} className="btn btn-danger btn-sm">
-                <LogOut size={16} /> Logout
-              </button>
+                
+                <Link to="/settings" className="dropdown-item" onClick={() => setIsDropdownOpen(false)}>
+                  <Settings size={16} /> Tetapan
+                </Link>
+                
+                <div className="dropdown-divider"></div>
+                
+                <button onClick={handleLogout} className="dropdown-item" style={{ width: '100%', color: 'var(--danger)' }}>
+                  <LogOut size={16} /> Log Keluar
+                </button>
+              </div>
             </div>
           ) : (
             <Link to="/login" className="btn btn-primary btn-sm">
@@ -80,8 +120,14 @@ export default function Navbar() {
                   <LayoutDashboard size={16} /> Dashboard
                 </Link>
               )}
+              <Link to="/profile" className="btn btn-secondary" onClick={() => setIsMobileMenuOpen(false)}>
+                <User size={16} /> Profil Saya
+              </Link>
+              <Link to="/settings" className="btn btn-secondary" onClick={() => setIsMobileMenuOpen(false)}>
+                <Settings size={16} /> Tetapan
+              </Link>
               <button onClick={() => { handleLogout(); setIsMobileMenuOpen(false); }} className="btn btn-danger">
-                <LogOut size={16} /> Logout
+                <LogOut size={16} /> Log Keluar
               </button>
             </>
           ) : (
